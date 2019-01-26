@@ -1,6 +1,6 @@
-package com.example.polls.model;
+package ru.golov.polls.model;
 
-import com.example.polls.model.audit.DateAudit;
+import ru.golov.polls.model.audit.DateAudit;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -20,6 +20,7 @@ import java.util.Set;
         })
 })
 public class User extends DateAudit {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

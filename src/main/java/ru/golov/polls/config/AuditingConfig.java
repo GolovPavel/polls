@@ -1,4 +1,4 @@
-package com.example.polls.config;
+package ru.golov.polls.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

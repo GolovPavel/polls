@@ -1,6 +1,6 @@
-package com.example.polls.repository;
+package ru.golov.polls.repository;
 
-import com.example.polls.model.User;
+import ru.golov.polls.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
     Optional<User> findUserByEmail(String email);
 
     Optional<User> findByUserNameOrEmail(String username, String email);

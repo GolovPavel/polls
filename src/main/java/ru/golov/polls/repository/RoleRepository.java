@@ -1,10 +1,10 @@
 package ru.golov.polls.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import ru.golov.polls.model.Role;
 import ru.golov.polls.model.RoleName;
 import ru.golov.polls.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 

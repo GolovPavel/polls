@@ -1,4 +1,4 @@
-package ru.golov.polls.model;
+package ru.golov.polls.model.entity;
 
 import org.hibernate.annotations.NaturalId;
 import ru.golov.polls.model.audit.DateAudit;

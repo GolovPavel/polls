@@ -1,6 +1,7 @@
-package ru.golov.polls.model;
+package ru.golov.polls.model.entity;
 
 import org.hibernate.annotations.NaturalId;
+import ru.golov.polls.model.RoleName;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

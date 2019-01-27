@@ -1,0 +1,4 @@
+# React files
+node/
+node_modules/
+build/

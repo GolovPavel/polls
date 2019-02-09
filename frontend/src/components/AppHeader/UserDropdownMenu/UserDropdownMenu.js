@@ -7,7 +7,7 @@ import "./UserDropdownMenu.css";
 const UserDropdownMenu = () => {
   const dropdownMenu = (
     <Menu  className="profile-dropdown-menu">
-      <Menu.Item key="user-info" className="dropdown-item" disabled>
+      <Menu.Item key="user-info" className="dropdown-item">
         <div className="user-full-name-info">
           Имя твоей мамки
         </div>
@@ -31,9 +31,9 @@ const UserDropdownMenu = () => {
       placement="bottomLeft"
       trigger={['click']}
       getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-      <a className="ant-dropdown-link">
+      <div className="ant-dropdown-link">
         <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
-      </a>
+      </div>
     </Dropdown>
   );
 };

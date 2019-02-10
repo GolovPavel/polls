@@ -20,10 +20,14 @@
     z-index: 10;
     padding: 0;
     background-color: white;
-    margin: 0 auto;
 }
 
 .container {
-    width: 1000px;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .app-title a {
+        font-size: 20px;
+    }
 }

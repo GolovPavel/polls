@@ -18,3 +18,15 @@
 .poll-icon {
     margin-top: -4px;
 }
+
+@media (max-width: 768px) {
+
+    .app-menu > li {
+        padding: 0 15px;
+    }
+
+    .app-menu > li > a {
+        padding: 0 15px;
+        margin: 0 -15px;
+    }
+}

@@ -4,6 +4,7 @@ import { withRouter, Switch, Route } from "react-router-dom";
 import AppHeader from "./components/AppHeader/AppHeader";
 import HomePage from "./components/HomePage/HomePage";
 import './App.css';
+import Login from "./components/Auth/Login/Login";
 
 const { Content } = Layout;
 
@@ -20,6 +21,7 @@ class App extends Component {
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={HomePage}/>
+                    <Route path="/login" component={Login}/>
                   </Switch>
                 </div>
               </Content>

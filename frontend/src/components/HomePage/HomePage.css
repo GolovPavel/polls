@@ -1,0 +1,8 @@
+.homepage-img {
+    margin: 20px auto;
+}
+
+.homepage-img img {
+    display: block;
+    width: 80%;
+}

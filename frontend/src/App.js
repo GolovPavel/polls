@@ -5,6 +5,7 @@ import AppHeader from "./components/AppHeader/AppHeader";
 import HomePage from "./components/HomePage/HomePage";
 import './App.css';
 import Login from "./components/Auth/Login/Login";
+import Signup from "./components/Auth/Signup/Signup";
 
 const { Content } = Layout;
 
@@ -22,6 +23,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/login" component={Login}/>
+                    <Route path="/signup" component={Signup}/>
                   </Switch>
                 </div>
               </Content>

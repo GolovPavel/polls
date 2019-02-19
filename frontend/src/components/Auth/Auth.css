@@ -1,9 +1,9 @@
-.login-container {
+.auth-container {
     max-width: 400px;
     margin: 0 auto;
     margin-top: 40px;
 }
 
-.login-form-button {
+.auth-form-button {
     width: 100%;
 }

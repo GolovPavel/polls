@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 import { Link } from "react-router-dom";
-import "./Login.css";
+import "../Auth.css";
 
 class LoginForm extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
+
     return (
       <Form className="login-form">
         <Form.Item>
@@ -32,7 +33,7 @@ class LoginForm extends Component {
           )}
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type="primary" htmlType="submit" className="auth-form-button">
             Login
           </Button>
             Or <Link to="/signup">register now!</Link>

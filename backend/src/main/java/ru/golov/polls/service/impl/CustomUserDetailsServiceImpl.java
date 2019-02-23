@@ -2,6 +2,7 @@ package ru.golov.polls.service.impl;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import ru.golov.polls.model.entity.User;
 import ru.golov.polls.repository.UserRepository;
 import ru.golov.polls.security.UserPrincipal;
@@ -9,6 +10,7 @@ import ru.golov.polls.service.CustomUserDetailsService;
 
 import javax.transaction.Transactional;
 
+@Service
 public class CustomUserDetailsServiceImpl implements CustomUserDetailsService {
 
     private final UserRepository userRepository;

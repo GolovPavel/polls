@@ -2,7 +2,6 @@ package ru.golov.polls.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +25,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
-    @Autowired
     public JwtAuthenticationFilter(CustomUserDetailsService customUserDetailsService,
                                    JwtTokenProvider jwtTokenProvider) {
         this.customUserDetailsService = customUserDetailsService;
@@ -46,7 +44,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         } catch (Exception ex) {
-            logger.warn("Could not set user auth in security context", ex);
+            // Can't authorize user - do nothing
         }
 
         filterChain.doFilter(httpServletRequest, httpServletResponse);

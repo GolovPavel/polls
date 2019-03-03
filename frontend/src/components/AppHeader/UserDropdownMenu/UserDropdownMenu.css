@@ -1,0 +1,25 @@
+.profile-dropdown-menu {
+    min-width: 180px;
+    padding: 0 5px;
+}
+
+.profile-menu .user-full-name-info {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.85);
+}
+
+.profile-menu .username-info {
+    font-size: 14px;
+    color: rgba(0,0,0,0.65);
+}
+
+.dropdown-item {
+    padding: 10px 12px;
+}
+
+.dropdown-item a {
+    padding: 10px 12px;
+    margin: -10px -12px;
+    cursor: pointer;
+}

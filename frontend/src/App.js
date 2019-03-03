@@ -1,28 +1,36 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import { Layout } from "antd";
+import { withRouter, Switch, Route } from "react-router-dom";
+import AppHeader from "./components/AppHeader/AppHeader";
+import HomePage from "./components/HomePage/HomePage";
+import Login from "./components/Auth/Login/Login";
+import Signup from "./components/Auth/Signup/Signup";
+
 import './App.css';
+
+const { Content } = Layout;
+
+
+
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
-            </div>
+          <Layout className="app-container">
+            <AppHeader/>
+
+              <Content className="app-content">
+                <div className="container">
+                  <Switch>
+                    <Route exact path="/" component={HomePage}/>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/signup" component={Signup}/>
+                  </Switch>
+                </div>
+              </Content>
+          </Layout>
         );
     }
 }
 
-export default App;
+export default withRouter(App);

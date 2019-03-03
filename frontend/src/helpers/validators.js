@@ -9,6 +9,11 @@ import {
   PASSWORD_MAX_LENGTH
 } from "../constants/validators";
 
+const successValidation = {
+  validateStatus: "success",
+  errorMsg: null
+};
+
 export const validateFunction = (fieldName, fieldValue) => {
   switch (fieldName) {
     case "fullName":
@@ -20,10 +25,7 @@ export const validateFunction = (fieldName, fieldValue) => {
     case "password":
       return validatePassword(fieldValue);
     default:
-      return {
-        validateStatus: "success",
-        errorMsg: null
-      }
+      return successValidation;
   }
 };
 
@@ -42,10 +44,7 @@ const validateFullName = fullName => {
     }
   }
 
-  return {
-    validateStatus: "success",
-    errorMsg: null
-  }
+  return successValidation;
 };
 
 const validateUserName = username => {
@@ -63,10 +62,7 @@ const validateUserName = username => {
     }
   }
 
-  return {
-    validateStatus: "success",
-    errorMsg: null
-  }
+  return successValidation;
 };
 
 const validateEmail = email => {
@@ -91,10 +87,7 @@ const validateEmail = email => {
     }
   }
 
-  return {
-    validateStatus: "success",
-    errorMsg: null
-  }
+  return successValidation;
 };
 
 const validatePassword = password => {
@@ -112,9 +105,6 @@ const validatePassword = password => {
     }
   }
 
-  return {
-    validateStatus: "success",
-    errorMsg: null
-  }
+  return successValidation;
 };
 

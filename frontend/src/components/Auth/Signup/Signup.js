@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form} from "antd";
 import SignupForm from "./SignupForm";
+
 import "../Auth.css";
 
 class Signup extends Component {

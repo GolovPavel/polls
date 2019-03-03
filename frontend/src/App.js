@@ -3,9 +3,10 @@ import { Layout } from "antd";
 import { withRouter, Switch, Route } from "react-router-dom";
 import AppHeader from "./components/AppHeader/AppHeader";
 import HomePage from "./components/HomePage/HomePage";
-import './App.css';
 import Login from "./components/Auth/Login/Login";
 import Signup from "./components/Auth/Signup/Signup";
+
+import './App.css';
 
 const { Content } = Layout;
 

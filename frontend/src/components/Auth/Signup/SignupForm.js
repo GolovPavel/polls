@@ -39,7 +39,9 @@ class SignupForm extends Component {
 
   render() {
     const { fullName, username, email, password } = this.state;
-    const isFormValid = fullName.validateStatus === "success" && username.validateStatus === "success" && email.validateStatus === "success" && password.validateStatus === "success";
+    const isFormValid = fullName.validateStatus === "success" &&
+      username.validateStatus === "success" && email.validateStatus === "success" &&
+      password.validateStatus === "success";
 
     return (
       <Form className="signup-form">

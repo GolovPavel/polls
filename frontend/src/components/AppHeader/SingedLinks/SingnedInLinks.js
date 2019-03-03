@@ -2,8 +2,9 @@ import React from 'react';
 import pollIcon from '../poll.svg';
 import { Menu, Icon } from 'antd';
 import { Link } from "react-router-dom";
-import "./SignedLinks.css";
 import UserDropdownMenu from "../UserDropdownMenu/UserDropdownMenu";
+
+import "./SignedLinks.css";
 
 const SignedInLinks = () => {
   return (

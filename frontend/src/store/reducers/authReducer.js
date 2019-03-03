@@ -4,7 +4,7 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
   LOGOUT_SUCCESS
-} from '../constants/auth';
+} from '../../constants/auth';
 
 const initState = {
   authError: ""

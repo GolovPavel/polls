@@ -7,7 +7,7 @@ import {
   EMAIL_MASK,
   PASSWORD_MIN_LENGTH,
   PASSWORD_MAX_LENGTH
-} from "./constants";
+} from "../constants/validators";
 
 export const validateFunction = (fieldName, fieldValue) => {
   switch (fieldName) {

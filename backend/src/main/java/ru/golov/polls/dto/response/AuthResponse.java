@@ -5,6 +5,9 @@ public class AuthResponse {
     private String message;
     private Boolean success;
 
+    public AuthResponse() {
+    }
+
     public AuthResponse(String message, Boolean success) {
         this.message = message;
         this.success = success;

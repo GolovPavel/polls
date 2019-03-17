@@ -19,13 +19,13 @@ public class UserController {
 
     @GetMapping("/user/checkUsernameAvailability")
     public UserIdentityAvailability checkUsernameAvailability(@RequestParam(value = "username") String username) {
-        Boolean available = userService.getUserByUsername(username).isEmpty();
+        Boolean available = !userService.getUserByUsername(username).isPresent();
         return new UserIdentityAvailability(available);
     }
 
     @GetMapping("/user/checkEmailAvailability")
     public UserIdentityAvailability checkEmailAvailability(@RequestParam(value = "email") String email) {
-        Boolean available = userService.getUserByEmail(email).isEmpty();
+        Boolean available = !userService.getUserByEmail(email).isPresent();
         return new UserIdentityAvailability(available);
     }
 }

@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.gif", "/**/*.svg", "/**/*.jpg", "/**/*.html",
                         "/**/*.css", "/**/*.js").permitAll()
                 .antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability").permitAll()
+                .antMatchers("/api/user/checkAvailability", "/api/user/checkEmailAvailability").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**").permitAll()
                 .anyRequest().authenticated();
 

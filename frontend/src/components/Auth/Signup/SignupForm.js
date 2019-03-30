@@ -1,26 +1,24 @@
 import React, {Component} from 'react';
-import { Form, Icon, Input, Button } from 'antd';
-import { Link } from "react-router-dom";
-import { validateFunction } from "../../../helpers/validators";
+import {Button, Form, Icon, Input} from 'antd';
+import {Link} from "react-router-dom";
+import {validateFunction} from "../../../helpers/validators";
+import {signUp} from "../../../store/actions/signUp";
+import {checkingAvaibility} from "../../../store/actions/checkAvailability";
+import {connect} from "react-redux";
 
 import "../Auth.css";
+import {EMAIL_IS_VALIDATING, USERNAME_IS_VALIDATING} from "../../../constants/auth";
 
 class SignupForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      fullName: {
-        value: ""
-      },
-      username: {
-        value: ""
-      },
-      email: {
-        value: ""
+      name: {
+        value: "",
       },
       password: {
-        value: ""
+        value: "",
       }
     }
   }
@@ -37,27 +35,58 @@ class SignupForm extends Component {
     })
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const { name, password } = this.state;
+    const { signUp, signupError, username, email } = this.props;
+    const userData = {
+      email: email.value,
+      name: name.value,
+      password: password.value,
+      username: username.value,
+    };
+    signUp(userData);
+  };
+
+  validateUserNameOrEmailAviability = event => {
+    const usernameOrEmail = {
+      username: USERNAME_IS_VALIDATING,
+      email: EMAIL_IS_VALIDATING,
+    };
+    const inputValue = event.target.value;
+    const inputName = event.target.name;
+    const { checkingAvaibility } = this.props;
+
+    checkingAvaibility(usernameOrEmail[inputName]);
+    validateFunction(inputName, inputValue);
+
+  };
+
   render() {
-    const { fullName, username, email, password } = this.state;
-    const isFormValid = fullName.validateStatus === "success" &&
+    const { name, password } = this.state;
+    const { username, email } = this.props;
+    const isFormValid = name.validateStatus === "success" &&
       username.validateStatus === "success" && email.validateStatus === "success" &&
       password.validateStatus === "success";
 
     return (
-      <Form className="signup-form">
+      <Form className="signup-form" onSubmit={this.handleSubmit}>
         <Form.Item
-          validateStatus={fullName.validateStatus}
-          help={fullName.errorMsg}
+          hasFeedback
+          validateStatus={name.validateStatus}
+          help={name.errorMsg}
         >
           <Input
             prefix={<Icon type="smile" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            name="fullName"
+            name="name"
             placeholder="Full Name"
             autoComplete="off"
             onChange={this.handleInputChange}
           />
         </Form.Item>
         <Form.Item
+          hasFeedback
           validateStatus={username.validateStatus}
           help={username.errorMsg}
         >
@@ -66,10 +95,11 @@ class SignupForm extends Component {
             name="username"
             autoComplete="off"
             placeholder="Username"
-            onChange={this.handleInputChange}
+            onBlur={this.validateUserNameOrEmailAviability}
           />
         </Form.Item>
         <Form.Item
+          hasFeedback
           validateStatus={email.validateStatus}
           help={email.errorMsg}
         >
@@ -78,10 +108,11 @@ class SignupForm extends Component {
             name="email"
             placeholder="Email"
             autoComplete="off"
-            onChange={this.handleInputChange}
+            onBlur={this.validateUserNameOrEmailAviability}
           />
         </Form.Item>
         <Form.Item
+          hasFeedback
           validateStatus={password.validateStatus}
           help={password.errorMsg}
         >
@@ -109,5 +140,24 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm;
+const mapStateToProps = state => {
+  return {
+    signupError: state.auth.signupError,
+    username: state.auth.username,
+    email: state.auth.email,
+  }
+};
+
+const mapDispatchToProps = dispath => {
+  return {
+    signUp: userData => dispath(signUp(userData)),
+    checkingAvaibility: type => dispath(checkingAvaibility(type))
+  }
+};
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignupForm);
 

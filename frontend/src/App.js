@@ -15,7 +15,6 @@ class App extends Component {
         return (
           <Layout className="app-container">
             <AppHeader/>
-
               <Content className="app-content">
                 <div className="container">
                   <Switch>

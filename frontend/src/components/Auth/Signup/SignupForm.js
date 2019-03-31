@@ -39,7 +39,7 @@ class SignupForm extends Component {
     event.preventDefault();
 
     const { name, password } = this.state;
-    const { signUp, signupError, username, email } = this.props;
+    const { signUp, username, email } = this.props;
     const userData = {
       email: email.value,
       name: name.value,

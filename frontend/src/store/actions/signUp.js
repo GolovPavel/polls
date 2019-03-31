@@ -1,8 +1,10 @@
 import {request} from "../../utils/ApiUtils";
 import {API_BASE_URL} from "../../constants/api";
 import {SIGNUP_ERROR, SIGNUP_SUCCESS} from "../../constants/auth";
+import {openErrorSignUpNotification, openSuccessSignUpNotification} from "../../components/Notifications/signUp";
+import history from '../../history'
 
-export const signUp = userData =>
+export const signUp = (userData) =>
   dispatch => {
     request({
       url: `${API_BASE_URL}/auth/signup`,
@@ -11,8 +13,14 @@ export const signUp = userData =>
     }).then(data =>
       dispatch({
       type: SIGNUP_SUCCESS,
-    })).catch(err => dispatch({
-      type: SIGNUP_ERROR,
-      err
     }))
+    .then(() => history.push('/login'))
+    .then(() => openSuccessSignUpNotification())
+    .catch(err => {
+      dispatch({
+        type: SIGNUP_ERROR,
+        err
+      });
+      openErrorSignUpNotification(err.message)
+    })
   };

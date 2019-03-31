@@ -11,6 +11,6 @@ export const openSuccessSignUpNotification = () => {
 export const openErrorSignUpNotification = description => {
   notification.error({
     message: "Polling App",
-    description: description || 'Sorry! Something went wrong. Please try again!'
+    description: Boolean(description) ? `${description}. Please, try again!` : 'Sorry! Something went wrong. Please try again!'
   });
 };

@@ -29,7 +29,15 @@ const authReducer = (state = initialState, action) => {
     case SIGNUP_SUCCESS:
       return {
         ...state,
-        signupError: ""
+        signupError: "",
+        username: {
+          ...state.username,
+          validateStatus: null,
+        },
+        email: {
+          ...state.email,
+          validateStatus: null,
+        },
       };
 
     case SIGNUP_ERROR:
@@ -57,7 +65,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         [action.payload.inputType]: {
-          value: action.value,
+          value: action.payload.value,
           validateStatus: "success",
           errorMsg: null,
         }
@@ -68,9 +76,9 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         [action.payload.inputType]: {
-          value: action.value,
+          value: action.payload.value,
           validateStatus: "error",
-          errorMsg: `This ${action.value} is already taken`,
+          errorMsg: `This ${action.payload.inputType} is already taken`,
         }
       };
 

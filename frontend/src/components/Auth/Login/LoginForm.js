@@ -1,17 +1,32 @@
 import React, {Component} from 'react';
-import { Form, Icon, Input, Button } from 'antd';
-import { Link } from "react-router-dom";
+import {Button, Form, Icon, Input} from 'antd';
+import {Link} from "react-router-dom";
+import {logIn} from "../../../store/actions/logIn";
 
 import "../Auth.css";
+import {connect} from "react-redux";
 
 class LoginForm extends Component {
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    const { logIn, form } = this.props;
+
+    form.validateFields((err, values) => {
+      if (!err) {
+        logIn(values);
+      }
+    })
+  };
+
+
   render() {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <Form className="login-form">
+      <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
-          {getFieldDecorator('userNameOrEmail', {
+          {getFieldDecorator('usernameOrEmail', {
             rules: [{ required: true, message: 'Please input your username or email!' }],
           })(
             <Input
@@ -44,4 +59,19 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+const mapStateToProps = state => {
+  return {
+    loginError: state.auth.loginError,
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logIn: userData => dispatch(logIn(userData)),
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginForm);

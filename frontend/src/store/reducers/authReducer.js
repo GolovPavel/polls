@@ -5,6 +5,8 @@ import {
   EMAIL_IS_NOT_AVAILABLE,
   EMAIL_IS_TOO_LONG,
   EMAIL_IS_VALIDATING,
+  LOGIN_ERROR,
+  LOGIN_SUCCESS,
   SIGNUP_ERROR,
   SIGNUP_SUCCESS,
   USERNAME_IS_AVAILABLE,
@@ -15,6 +17,7 @@ import {
 } from '../../constants/auth';
 
 const initialState = {
+  loginError: "",
   signupError: "",
   username: {
     value: "",
@@ -45,6 +48,19 @@ const authReducer = (state = initialState, action) => {
         ...state,
         signupError: action.err.message
       };
+
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        loginError: "",
+      };
+
+    case LOGIN_ERROR:
+      return {
+        ...state,
+        loginError: "error",
+      };
+
 
     case USERNAME_IS_TOO_LONG:
     case USERNAME_IS_TOO_SHORT:

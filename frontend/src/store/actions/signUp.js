@@ -1,8 +1,11 @@
 import {request} from "../../utils/ApiUtils";
 import {API_BASE_URL} from "../../constants/api";
 import {SIGNUP_ERROR, SIGNUP_SUCCESS} from "../../constants/auth";
-import {openErrorSignUpNotification, openSuccessSignUpNotification} from "../../components/Notifications/signUp";
-import history from '../../history'
+import {
+  openErrorSignUpNotification,
+  openSuccessSignUpNotification
+} from "../../components/Notifications/authNotifications";
+import history from '../../history';
 
 export const signUp = (userData) =>
   dispatch => {
